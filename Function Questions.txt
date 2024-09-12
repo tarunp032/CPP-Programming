@@ -1,0 +1,429 @@
+1. program to find prime or not prime if user enter 1 and if user enters 2 call a function to check whether it is even or odd.
+
+#include <iostream>
+using namespace std;
+
+// Function to check if a number is prime
+bool isPrime(int num) {
+    if (num <= 1) return false;  // Numbers less than or equal to 1 are not prime
+    for (int i = 2; i <= num / 2; i++) {
+        if (num % i == 0) return false;  // If divisible, it's not prime
+    }
+    return true;  // Number is prime
+}
+// Function to check if a number is even or odd
+void checkEvenOdd(int num) {
+    if (num % 2 == 0)
+        cout << num << " is even." << endl;
+    else
+        cout << num << " is odd." << endl;
+}
+
+int main() {
+    int choice, num;
+
+    cout << "Enter 1 to check if a number is prime, or 2 to check if it's even or odd: ";
+    cin >> choice;
+
+    if (choice == 1) {
+        cout << "Enter a number: ";
+        cin >> num;
+        if (isPrime(num))
+            cout << num << " is a prime number." << endl;
+        else
+            cout << num << " is not a prime number." << endl;
+    } else if (choice == 2) {
+        cout << "Enter a number: ";
+        cin >> num;
+        checkEvenOdd(num);
+    } else {
+        cout << "Invalid choice." << endl;
+    }
+    return 0;
+}
+2. mujhe user se ek string input mai lena hai agr wo mon-sat weekday sun holiday invalid day
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string day;
+
+    // Ask the user for the day input
+    cout << "Enter the day of the week: ";
+    cin >> day;
+
+    // Convert the input to lowercase for easier comparison (optional)
+    for (int i = 0; i < day.length(); i++) {
+        day[i] = tolower(day[i]);
+    }
+
+    // Check if the day is Sunday
+    if (day == "sunday") {
+        cout << "Holiday is valid." << endl;
+    }
+    // Check if the day is Monday-Saturday
+    else if (day == "monday" || day == "tuesday" || day == "wednesday" || 
+             day == "thursday" || day == "friday" || day == "saturday") {
+        cout << "Holiday is invalid." << endl;
+    }
+    // If the input doesn't match any day
+    else {
+        cout << "Invalid input. Please enter a valid day of the week." << endl;
+    }
+
+    return 0;
+}
+
+
+3.user product ek string enter karega
+LUx Lux LuX = Soap
+ViVel  =Soap
+lIFEbOUY =soap
+
+gooday =biscuit
+snacks = biscuit
+marigold = biscuit
+
+Axe = perfume
+Vellavita =perfume
+fog = perfume
+
+#include <iostream>
+#include <string>
+#include <algorithm> // for transform function
+using namespace std;
+
+int main() {
+    string product;
+
+    // Ask the user to input a product name
+    cout << "Enter a product name: ";
+    getline(cin, product);
+
+    // Convert the input to lowercase for case-insensitive comparison
+    transform(product.begin(), product.end(), product.begin(), ::tolower);
+
+    // Check if the product is soap
+    if (product == "lux" || product == "vivel" || product == "lifebuoy") {
+        cout << product << " is a soap." << endl;
+    }
+    // Check if the product is biscuit
+    else if (product == "gooday" || product == "snacks" || product == "marigold") {
+        cout << product << " is a biscuit." << endl;
+    }
+    // Check if the product is perfume
+    else if (product == "axe" || product == "vellavita" || product == "fog") {
+        cout << product << " is a perfume." << endl;
+    }
+    // If the product does not match any known category
+    else {
+        cout << "Unknown product category." << endl;
+    }
+
+    return 0;
+}
+
+4.agar user input karta hai a e i o u vowel or else constants 0 1 2 3 4 5 numbers  #$%^&*(()!>:<) special characters
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    char ch;
+
+    // Ask the user to input a character
+    cout << "Enter a character: ";
+    cin >> ch;
+
+    // Check if the character is a vowel
+    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+        ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
+        cout << ch << " is a vowel." << endl;
+    }
+    // Check if the character is a number (0-9)
+    else if (isdigit(ch)) {
+        cout << ch << " is a number." << endl;
+    }
+    // Check if the character is a consonant (a letter but not a vowel)
+    else if (isalpha(ch)) {
+        cout << ch << " is a consonant." << endl;
+    }
+    // If the character is none of the above, it's a special character
+    else {
+        cout << ch << " is a special character." << endl;
+    }
+
+    return 0;
+}
+
+
+5.agar user ki age 0-5 "child" 6-12 "young age" 13-19 "teenage" 20-50 "middle age" greater than 51 "senior citizen"
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int age;
+
+    // Ask the user for their age
+    cout << "Enter your age: ";
+    cin >> age;
+
+    // Classify the age
+    if (age >= 0 && age <= 5) {
+        cout << "You are a Child." << endl;
+    } 
+    else if (age >= 6 && age <= 12) {
+        cout << "You are in Young Age." << endl;
+    } 
+    else if (age >= 13 && age <= 19) {
+        cout << "You are in Teenage." << endl;
+    } 
+    else if (age >= 20 && age <= 50) {
+        cout << "You are in Middle Age." << endl;
+    } 
+    else if (age > 50) {
+        cout << "You are a Senior Citizen." << endl;
+    } 
+    else {
+        cout << "Invalid age entered!" << endl;
+    }
+
+    return 0;
+}
+
+
+
+6.if agar user ne input kiya hai
+  1 then ek function call karna hai A() ===> A is printed uske andar ek aur function call karna hai and call function D() and "print I am D"
+  2 then ek function call karna hai B() ===> B is printed 
+
+and call function E() and "print I am E"
+  3 then ek function call karna hai C() ===> C is printed 
+
+and call function F() and "print I am F"
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function D
+void D() {
+    cout << "I am D" << endl;
+}
+
+// Function E
+void E() {
+    cout << "I am E" << endl;
+}
+
+// Function F
+void F() {
+    cout << "I am F" << endl;
+}
+
+// Function A
+void A() {
+    cout << "A is printed" << endl;
+    D();  // Call function D inside A
+}
+
+// Function B
+void B() {
+    cout << "B is printed" << endl;
+    E();  // Call function E inside B
+}
+
+// Function C
+void C() {
+    cout << "C is printed" << endl;
+    F();  // Call function F inside C
+}
+
+int main() {
+    int choice;
+
+    // Ask the user for input
+    cout << "Enter 1 for A, 2 for B, 3 for C: ";
+    cin >> choice;
+
+    // Based on user input, call the appropriate function
+    if (choice == 1) {
+        A();  // Call function A
+    } 
+    else if (choice == 2) {
+        B();  // Call function B
+    } 
+    else if (choice == 3) {
+        C();  // Call function C
+    } 
+    else {
+        cout << "Invalid choice!" << endl;
+    }
+
+    return 0;
+}
+
+
+7. user se ek input lena hai agar wo input ek vowel hota hai to ek function run karna A() ==>A is printed
+    wo input consonant hota hai to function B() ===> B is printed
+    wo input 0 1 2 3 4 5 function C() ===> c is printed
+    wo #$%^&&**(( )) function D() ===> D is printed
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function A
+void A() {
+    cout << "A is printed" << endl;
+}
+
+// Function B
+void B() {
+    cout << "B is printed" << endl;
+}
+
+// Function C
+void C() {
+    cout << "C is printed" << endl;
+}
+
+// Function D
+void D() {
+    cout << "D is printed" << endl;
+}
+
+int main() {
+    char ch;
+
+    // Ask the user for a character input
+    cout << "Enter a character: ";
+    cin >> ch;
+
+    // Check if the character is a vowel (a, e, i, o, u)
+    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' || 
+        ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
+        A(); // Call function A for vowels
+    }
+    // Check if the character is a number (0-5)
+    else if (ch >= '0' && ch <= '5') {
+        C(); // Call function C for numbers
+    }
+    // Check if the character is a consonant (a letter that is not a vowel)
+    else if (isalpha(ch)) {
+        B(); // Call function B for consonants
+    }
+    // If the character is a special character
+    else {
+        D(); // Call function D for special characters
+    }
+
+    return 0;
+}
+
+
+8. User se 3 input lena hai, un calculate karna hai sum nikalna hai
+    if agar wo sum even hota hai print karna hai even, odd hota hai to print karna hai odd
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num1, num2, num3, sum;
+
+    // Ask the user for three integer inputs
+    cout << "Enter three integers: ";
+    cin >> num1 >> num2 >> num3;
+
+    // Calculate the sum of the three integers
+    sum = num1 + num2 + num3;
+
+    // Check if the sum is even or odd
+    if (sum % 2 == 0) {
+        cout << "The sum is even." << endl;
+    } else {
+        cout << "The sum is odd." << endl;
+    }
+
+    return 0;
+}
+
+
+
+9. user se 4 input lena hai un ka product nikalna hai agar wo product even hota hai to fir ek function call karna hai aur usme A is printed likhna hai. agar wo product odd hota hai to fir ek dusra function call hoga aur usme B is printed.
+
+#include <iostream>
+using namespace std;
+
+// Function to print "A is printed"
+void printA() {
+    cout << "A is printed" << endl;
+}
+
+// Function to print "B is printed"
+void printB() {
+    cout << "B is printed" << endl;
+}
+
+int main() {
+    int num1, num2, num3, num4, product;
+
+    // Ask the user for four integer inputs
+    cout << "Enter four integers: ";
+    cin >> num1 >> num2 >> num3 >> num4;
+
+    // Calculate the product of the four integers
+    product = num1 * num2 * num3 * num4;
+
+    // Check if the product is even or odd
+    if (product % 2 == 0) {
+        printA();  // Call function printA() if product is even
+    } else {
+        printB();  // Call function printB() if product is odd
+    }
+
+    return 0;
+}
+
+
+
+10.user se 3 input lena hai, unka sum nikalna hai ab agar wo sum even hota hai then last 3 input mai se jo max tha uska answer batana hai
+   Aur agar sum odd hai fir un tino number ka product(multiplication) nikalna ha
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int num1, num2, num3;
+    int sum, product, max_num;
+
+    // Ask the user for three integer inputs
+    cout << "Enter three integers: ";
+    cin >> num1 >> num2 >> num3;
+
+    // Calculate the sum of the three integers
+    sum = num1 + num2 + num3;
+
+    // Check if the sum is even or odd
+    if (sum % 2 == 0) {
+        // If the sum is even, find and print the maximum of the three numbers
+        max_num = num1;
+        if (num2 > max_num) max_num = num2;
+        if (num3 > max_num) max_num = num3;
+        
+        cout << "The sum is even. The maximum number is: " << max_num << endl;
+    } else {
+        // If the sum is odd, calculate and print the product of the three numbers
+        product = num1 * num2 * num3;
+        
+        cout << "The sum is odd. The product of the numbers is: " << product << endl;
+    }
+
+    return 0;
+}
+
+
+THE END 
+
