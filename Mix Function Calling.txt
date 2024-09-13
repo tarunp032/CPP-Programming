@@ -1,0 +1,392 @@
+1. User se 3 input lena agr unka avg 50 se zada aya then ek function call karna hai us function mai       20-30 print karna hai  ab agar uska avg 50 se kam ata hai to fir function calling 1-20 print karna hai
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to print numbers from 20 to 30
+void printTwentyToThirty() {
+    for (int i = 20; i <= 30; i++) {
+        cout << i << " ";
+    }
+    cout << endl;
+}
+
+// Function to print numbers from 1 to 20
+void printOneToTwenty() {
+    for (int i = 1; i <= 20; i++) {
+        cout << i << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    int num1, num2, num3;
+    cout << "Enter three numbers: ";
+    cin >> num1 >> num2 >> num3;
+    
+    // Calculate the average
+    float average = (num1 + num2 + num3) / 3.0;
+    
+    // Check if average is greater than 50
+    if (average > 50) {
+        printTwentyToThirty();
+    } else {
+        printOneToTwenty();
+    }
+    
+    return 0;
+}
+
+
+
+2.  3 input lena hai usme se jo max hoga agr wo b hota hai to ek function call karna hai aur us function mai 5 ka factorial print karwana , max agar c hota hai to fir c powerof2 ha ya nahi check karna hai, agr max a hota hai to fir apna nam print karna hai.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to calculate factorial of 5
+void printFactorialOf5() {
+    int fact = 1;
+    for (int i = 1; i <= 5; i++) {
+        fact *= i;
+    }
+    cout << "Factorial of 5 is: " << fact << endl;
+}
+
+// Function to check if a number is a power of 2
+void checkPowerOfTwo(int num) {
+    if (num > 0 && (num & (num - 1)) == 0) {
+        cout << num << " is a power of 2." << endl;
+    } else {
+        cout << num << " is not a power of 2." << endl;
+    }
+}
+
+int main() {
+    int a, b, c;
+    cout << "Enter three numbers (a, b, c): ";
+    cin >> a >> b >> c;
+    
+    // Determine the maximum value
+    int maxVal = max(a, max(b, c));
+    
+    // Based on the maximum value, perform actions
+    if (maxVal == b) {
+        printFactorialOf5();
+    } else if (maxVal == c) {
+        checkPowerOfTwo(c);
+    } else if (maxVal == a) {
+        cout << "Your Name: Tarun Prajapat" << endl;  // Replace "John Doe" with your name
+    }
+    
+    return 0;
+}
+
+
+3. 4 input lena hai unka sum karna hai(input -ve bhi ho sakte hai ) agar unka sum -ve hi ata hai to fir reverse of 2nd number karna hai
+ agr wo 2nd number -ve hota hai to use positive mai karke uska reverse nikalna hai (hint: abs(b)) agr sum +ve hota hai to fir 4 ka factorial nikalna hai agar sum 0 hota hai to fir 4 input ka product nikalna hai.
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to reverse a number
+int reverseNumber(int num) {
+    int reversed = 0;
+    while (num != 0) {
+        reversed = reversed * 10 + num % 10;
+        num /= 10;
+    }
+    return reversed;
+}
+
+// Function to calculate factorial of 4
+int factorialOf4() {
+    int fact = 1;
+    for (int i = 1; i <= 4; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+
+int main() {
+    int a, b, c, d;
+    cout << "Enter four numbers (a, b, c, d): ";
+    cin >> a >> b >> c >> d;
+    
+    // Calculate the sum of the four inputs
+    int sum = a + b + c + d;
+    
+    // Check if sum is negative, positive, or zero
+    if (sum < 0) {
+        // Reverse the second number (b), take abs if negative
+        int reversedB = reverseNumber(abs(b));
+        cout << "Sum is negative. Reversed second number: " << reversedB << endl;
+    } else if (sum > 0) {
+        // Calculate factorial of 4
+        int fact = factorialOf4();
+        cout << "Sum is positive. Factorial of 4 is: " << fact << endl;
+    } else {
+        // Calculate the product of the four inputs
+        int product = a * b * c * d;
+        cout << "Sum is zero. Product of the four inputs is: " << product << endl;
+    }
+    
+    return 0;
+}
+
+
+
+4. 5 input lena hai agar sum greater than 50 hota hai to ek function call karna hai usme mai 1-50 ka sum nikalna hai, agar less than 50 hota hai to fir ek function call karna hai usme 1 input char lene hai aur check karna hai ki wo vowel hai ya nahi. agar equals to 50 hota hai then check karna hai sum even tha ya odd.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to calculate the sum of numbers from 1 to 50
+int sumOneToFifty() {
+    int sum = 0;
+    for (int i = 1; i <= 50; i++) {
+        sum += i;
+    }
+    return sum;
+}
+
+// Function to check if a character is a vowel
+bool isVowel(char ch) {
+    // Convert to lowercase for easy comparison
+    ch = tolower(ch);
+    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+        return true;
+    }
+    return false;
+}
+
+int main() {
+    int a, b, c, d, e;
+    cout << "Enter five numbers: ";
+    cin >> a >> b >> c >> d >> e;
+    
+    // Calculate the sum of the inputs
+    int sum = a + b + c + d + e;
+    
+    // If the sum is greater than 50
+    if (sum > 50) {
+        int sum_1_to_50 = sumOneToFifty();
+        cout << "Sum is greater than 50. Sum of numbers from 1 to 50 is: " << sum_1_to_50 << endl;
+    }
+    // If the sum is less than 50
+    else if (sum < 50) {
+        char inputChar;
+        cout << "Sum is less than 50. Enter a character: ";
+        cin >> inputChar;
+        if (isVowel(inputChar)) {
+            cout << inputChar << " is a vowel." << endl;
+        } else {
+            cout << inputChar << " is not a vowel." << endl;
+        }
+    }
+    // If the sum equals 50
+    else {
+        cout << "Sum is exactly 50. Checking if it's even or odd: ";
+        if (sum % 2 == 0) {
+            cout << "The sum is even." << endl;
+        } else {
+            cout << "The sum is odd." << endl;
+        }
+    }
+    
+    return 0;
+}
+
+
+
+
+5.user se ek input lena hai agr wo input positive hota hai to fir ek function call karna hai usme 2 values lena hai aur unka swap karna hai, agar input -ve hota hai to fir ek function call karna hai aur check karna hai ki wo entered number palindrome hai ya nahi, agar wo 0 hota hai to fir ek function call karna hai aur usme ek input lena hai and check karna hai ki wo input powerof2 hai ya nahi.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to swap two numbers
+void swapValues(int &x, int &y) {
+    int temp = x;
+    x = y;
+    y = temp;
+    cout << "After swapping: x = " << x << ", y = " << y << endl;
+}
+
+// Function to check if a number is a palindrome
+bool isPalindrome(int num) {
+    int original = abs(num);  // Handle negative numbers
+    int reversed = 0, remainder;
+
+    while (num != 0) {
+        remainder = num % 10;
+        reversed = reversed * 10 + remainder;
+        num /= 10;
+    }
+
+    return original == reversed;
+}
+
+// Function to check if a number is a power of 2
+bool isPowerOfTwo(int num) {
+    if (num <= 0) return false;
+    return (num & (num - 1)) == 0;
+}
+
+int main() {
+    int input;
+    cout << "Enter a number: ";
+    cin >> input;
+
+    // If the input is positive
+    if (input > 0) {
+        int a, b;
+        cout << "Input is positive. Enter two values to swap: " << endl;
+        cout << "Enter value of a: ";
+        cin >> a;
+        cout << "Enter value of b: ";
+        cin >> b;
+        swapValues(a, b);
+    }
+    // If the input is negative
+    else if (input < 0) {
+        cout << "Input is negative. Checking if it is a palindrome: ";
+        if (isPalindrome(input)) {
+            cout << input << " is a palindrome." << endl;
+        } else {
+            cout << input << " is not a palindrome." << endl;
+        }
+    }
+    // If the input is zero
+    else {
+        int num;
+        cout << "Input is zero. Enter a number to check if it's a power of 2: ";
+        cin >> num;
+        if (isPowerOfTwo(num)) {
+            cout << num << " is a power of 2." << endl;
+        } else {
+            cout << num << " is not a power of 2." << endl;
+        }
+    }
+
+    return 0;
+}
+
+
+
+6.
+User se 4 input lena hai, inka sum nikalna hai. Agar sum > 100 hota hai to ek function call karna hai, jisme 3 input lena hai aur unka average return karna hai. Agar returned average > 50 hai to ek aur function call karke factorial nikalna hai aur check karna hai wo prime number hai ya nahi
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to calculate the average of three numbers
+float calculateAverage(int x, int y, int z) {
+    return (x + y + z) / 3.0;
+}
+
+// Function to calculate the factorial of a number
+int factorial(int num) {
+    int fact = 1;
+    for (int i = 1; i <= num; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+
+// Function to check if a number is prime
+bool isPrime(int num) {
+    if (num <= 1) return false;
+    if (num == 2) return true;  // 2 is the only even prime number
+    if (num % 2 == 0) return false;  // other even numbers are not prime
+
+    for (int i = 3; i <= sqrt(num); i += 2) {
+        if (num % i == 0) return false;
+    }
+    return true;
+}
+
+int main() {
+    int a, b, c, d;
+    cout << "Enter four numbers: ";
+    cin >> a >> b >> c >> d;
+
+    // Calculate the sum of the four inputs
+    int sum = a + b + c + d;
+    
+    // If the sum is greater than 100
+    if (sum > 100) {
+        int x, y, z;
+        cout << "Sum is greater than 100. Enter three more numbers: ";
+        cin >> x >> y >> z;
+
+        // Calculate the average of the three numbers
+        float average = calculateAverage(x, y, z);
+        cout << "Average of the three numbers is: " << average << endl;
+
+        // If the average is greater than 50
+        if (average > 50) {
+            int fact = factorial(static_cast<int>(average));
+            cout << "Factorial of the average (" << average << ") is: " << fact << endl;
+
+            // Check if the factorial is a prime number
+            if (isPrime(fact)) {
+                cout << fact << " is a prime number." << endl;
+            } else {
+                cout << fact << " is not a prime number." << endl;
+            }
+        }
+    }
+
+    return 0;
+}
+
+
+
+User se 2 input lena hai, inka product nikalna hai. Agar product < 50 hota hai to ek function call karna hai, jisme product aur ek user input ko add karna hai aur result ko return karna hai. Agar returned value odd hai to ek aur function call karke us value ko square karna hai aur result return karna hai.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to add the product to another user input and return the result
+int addProductToInput(int product, int userInput) {
+    return product + userInput;
+}
+
+// Function to square a number and return the result
+int squareNumber(int num) {
+    return num * num;
+}
+
+int main() {
+    int a, b;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+
+    // Calculate the product of the two inputs
+    int product = a * b;
+    cout << "Product of the two numbers is: " << product << endl;
+
+    // If the product is less than 50
+    if (product < 50) {
+        int userInput;
+        cout << "Product is less than 50. Enter another number to add to the product: ";
+        cin >> userInput;
+
+        // Call function to add the product to the user input
+        int result = addProductToInput(product, userInput);
+        cout << "Result after adding: " << result << endl;
+
+        // If the result is odd
+        if (result % 2 != 0) {
+            // Call function to square the result
+            int squaredResult = squareNumber(result);
+            cout << "Squared result: " << squaredResult << endl;
+        }
+    }
+
+    return 0;
+}
+
+
