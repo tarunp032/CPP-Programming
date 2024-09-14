@@ -1,0 +1,318 @@
+1. User se 6 input lena hai, inka maximum nikalna hai. Agar maximum > 75 hota hai to ek function call karna hai, jisme maximum aur 2 user inputs ko subtract karna hai aur result return karna hai. Agar result negative hai to absolute value nikal kar factorial return karna hai.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to subtract two inputs from the maximum
+int subtractTwoFromMax(int max, int a, int b) {
+    return max - a - b;
+}
+
+// Function to calculate factorial
+int factorial(int num) {
+    int fact = 1;
+    for (int i = 1; i <= num; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+
+int main() {
+    int arr[6];
+    
+    // Taking 6 inputs from the user
+    cout << "Enter 6 numbers: ";
+    for (int i = 0; i < 6; i++) {
+        cin >> arr[i];
+    }
+
+    // Finding the maximum value
+    int max = arr[0];
+    for (int i = 1; i < 6; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+
+    cout << "Maximum value is: " << max << endl;
+
+    // If maximum > 75, perform operations
+    if (max > 75) {
+        int a, b;
+        cout << "Enter two more numbers for subtraction: ";
+        cin >> a >> b;
+
+        // Subtracting the two numbers from the maximum
+        int result = subtractTwoFromMax(max, a, b);
+        cout << "Result of subtraction: " << result << endl;
+
+        // If result is negative, convert to absolute and calculate factorial
+        if (result < 0) {
+            result = abs(result);
+            int factResult = factorial(result);
+            cout << "Factorial of " << result << " is: " << factResult << endl;
+        }
+    }
+
+    return 0;
+}
+
+
+
+2. User se 3 input lena hai, inka sum nikalna hai. Agar sum 0 hota hai to ek function call karna hai aur check karna hai ki wo perfect square hai ya nahi. Agar perfect square hai to uska square root nikalna hai aur result return karna hai.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to check if a number is a perfect square
+bool isPerfectSquare(int num) {
+    int sqrtVal = sqrt(num);
+    return (sqrtVal * sqrtVal == num);  // Check if the square of sqrtVal equals num
+}
+
+// Function to calculate the square root if it's a perfect square
+int getSquareRoot(int num) {
+    return sqrt(num);  // Return the square root
+}
+
+int main() {
+    int a, b, c;
+
+    // Taking 3 inputs from the user
+    cout << "Enter 3 numbers: ";
+    cin >> a >> b >> c;
+
+    // Calculating the sum
+    int sum = a + b + c;
+    cout << "Sum of the numbers: " << sum << endl;
+
+    // If the sum is 0, check for perfect square
+    if (sum == 0) {
+        cout << "Sum is 0, checking for perfect square..." << endl;
+        int num;
+        cout << "Enter a number to check if it's a perfect square: ";
+        cin >> num;
+
+        // Checking if the number is a perfect square
+        if (isPerfectSquare(num)) {
+            cout << num << " is a perfect square." << endl;
+            int sqrtResult = getSquareRoot(num);
+            cout << "Square root of " << num << " is: " << sqrtResult << endl;
+        } else {
+            cout << num << " is not a perfect square." << endl;
+        }
+    }
+
+    return 0;
+}
+
+
+3.  User se 5 input lena hai, inka average nikalna hai. Agar average > 60 hai to ek function call karna hai, jisme 3 input lena hai aur unka product return karna hai. Agar product even hai to uska half return karna hai, agar odd hai to uska double return karna hai.
+
+#include <iostream>
+using namespace std;
+
+// Function to calculate the product of 3 numbers
+int calculateProduct(int x, int y, int z) {
+    return x * y * z;
+}
+
+// Function to process the product: return half if even, double if odd
+int processProduct(int product) {
+    if (product % 2 == 0) {
+        return product / 2;  // Return half if product is even
+    } else {
+        return product * 2;  // Return double if product is odd
+    }
+}
+
+int main() {
+    int arr[5];
+    
+    // Taking 5 inputs from the user
+    cout << "Enter 5 numbers: ";
+    for (int i = 0; i < 5; i++) {
+        cin >> arr[i];
+    }
+
+    // Calculating the average
+    int sum = 0;
+    for (int i = 0; i < 5; i++) {
+        sum += arr[i];
+    }
+    double average = static_cast<double>(sum) / 5;
+    cout << "Average of the numbers: " << average << endl;
+
+    // If average > 60, perform product operation
+    if (average > 60) {
+        int a, b, c;
+        cout << "Enter 3 more numbers for product calculation: ";
+        cin >> a >> b >> c;
+
+        // Calculate the product of 3 numbers
+        int product = calculateProduct(a, b, c);
+        cout << "Product of the numbers: " << product << endl;
+
+        // Process the product (half if even, double if odd)
+        int result = processProduct(product);
+        cout << "Processed result: " << result << endl;
+    }
+
+    return 0;
+}
+
+
+
+4.  User se 4 input lena hai, inka minimum nikalna hai. Agar minimum < 10 hai to ek function call karna hai aur minimum ko 5 se multiply karna hai aur result return karna hai. Agar result > 50 hai to factorial nikalna hai aur result return karna hai.
+
+#include <iostream>
+using namespace std;
+
+// Function to multiply minimum by 5
+int multiplyByFive(int min) {
+    return min * 5;
+}
+
+// Function to calculate factorial
+int factorial(int num) {
+    int fact = 1;
+    for (int i = 1; i <= num; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+
+int main() {
+    int arr[4];
+    
+    // Taking 4 inputs from the user
+    cout << "Enter 4 numbers: ";
+    for (int i = 0; i < 4; i++) {
+        cin >> arr[i];
+    }
+
+    // Finding the minimum value
+    int min = arr[0];
+    for (int i = 1; i < 4; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+
+    cout << "Minimum value is: " << min << endl;
+
+    // If minimum < 10, perform multiplication
+    if (min < 10) {
+        int result = multiplyByFive(min);
+        cout << "Result after multiplying by 5: " << result << endl;
+
+        // If result > 50, calculate factorial
+        if (result > 50) {
+            int factResult = factorial(result);
+            cout << "Factorial of " << result << " is: " << factResult << endl;
+        }
+    }
+
+    return 0;
+}
+
+
+5.  User se 3 input lena hai, unka sum nikalna hai. Agar sum > 80 hai to ek function call karna hai, jisme 2 input lena hai aur unka division result return karna hai. Agar result integer hai to us integer ka reverse return karna hai.
+
+#include <iostream>
+using namespace std;
+
+// Function to perform division
+float divideTwoNumbers(float x, float y) {
+    if (y != 0) {
+        return x / y;
+    } else {
+        cout << "Division by zero is not allowed." << endl;
+        return 0;
+    }
+}
+
+// Function to check if the division result is an integer and return the reverse of the integer
+int reverseInteger(int num) {
+    int reversed = 0;
+    while (num != 0) {
+        reversed = reversed * 10 + num % 10;
+        num /= 10;
+    }
+    return reversed;
+}
+
+int main() {
+    int a, b, c;
+
+    // Taking 3 inputs from the user
+    cout << "Enter 3 numbers: ";
+    cin >> a >> b >> c;
+
+    // Calculating the sum
+    int sum = a + b + c;
+    cout << "Sum of the numbers: " << sum << endl;
+
+    // If sum > 80, perform division
+    if (sum > 80) {
+        float x, y;
+        cout << "Enter 2 more numbers for division: ";
+        cin >> x >> y;
+
+        // Performing division
+        float result = divideTwoNumbers(x, y);
+        cout << "Result of division: " << result << endl;
+
+        // Check if result is an integer
+        if (result == static_cast<int>(result)) {
+            int intResult = static_cast<int>(result);
+            int reversed = reverseInteger(intResult);
+            cout << "Reverse of integer result " << intResult << " is: " << reversed << endl;
+        }
+    }
+
+    return 0;
+}
+
+
+
+
+6.  User se 2 input lena hai, inka difference nikalna hai. Agar difference < 0 hai to absolute value return karna hai. Agar difference even hai to ek function call karna hai aur us value ka cube return karna hai
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to calculate the cube of a number
+int cube(int num) {
+    return num * num * num;
+}
+
+int main() {
+    int a, b;
+
+    // Taking 2 inputs from the user
+    cout << "Enter 2 numbers: ";
+    cin >> a >> b;
+
+    // Calculating the difference
+    int difference = a - b;
+    cout << "Difference: " << difference << endl;
+
+    // If difference is negative, return absolute value
+    if (difference < 0) {
+        difference = abs(difference);
+        cout << "Absolute value of the difference: " << difference << endl;
+    }
+
+    // If difference is even, calculate cube
+    if (difference % 2 == 0) {
+        int result = cube(difference);
+        cout << "Cube of the difference: " << result << endl;
+    }
+
+    return 0;
+}
+
+
+
+
