@@ -1,0 +1,262 @@
+ Question 1:
+
+function halveArray(n) {
+    while (n > 1) {
+        n = Math.floor(n / 2);
+    }
+}
+
+Answer :- O(log n)
+
+
+ Question 2:
+
+function binarySearch(arr, target) {
+    let left = 0, right = arr.length - 1;
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+        if (arr[mid] === target) return mid;
+        else if (arr[mid] < target) left = mid + 1;
+        else right = mid - 1;
+    }
+    return -1;
+}
+
+Answer :- O(log n)
+
+
+ Question 3:
+
+function countHalves(n) {
+    let count = 0;
+    while (n > 0) {
+        n = Math.floor(n / 2);
+        count++;
+    }
+    return count;
+}
+
+Answer :-  O(log n)
+
+
+ Question 4:
+
+function powerOfTwo(n) {
+    while (n > 1) {
+        n /= 2;
+    }
+}
+Answer :- O(log n)
+
+
+ Question 5:
+
+function logarithmicPrint(n) {
+    for (let i = 1; i < n; i *= 2) {
+        console.log(i);
+    }
+}
+Answer :- O(log n) 
+
+ Question 6:
+
+function decreasingHalves(n) {
+    for (let i = n; i > 1; i = Math.floor(i / 2)) {
+        console.log(i);
+    }
+}
+Answer :- O(log n)
+
+
+ Question 7:
+
+function logSearch(n) {
+    let start = 1;
+    while (start < n) {
+        start *= 2;
+    }
+}
+Answer :- O(log n)
+
+ 
+ Question 8:
+
+function nestedHalving(n) {
+    while (n > 1) {
+        n = Math.floor(Math.sqrt(n));
+    }
+}
+Answer :- O(log log n)
+
+
+ Question 9:
+
+function logLogGrowth(n) {
+    let count = 0;
+    for (let i = 2; i < n; i = Math.pow(i, 2)) {
+        count++;
+    }
+}
+Answer :- O(log log n)
+
+ Question 10:
+
+function logSqrtSearch(n) {
+    let x = Math.sqrt(n);
+    while (x > 1) {
+        x = Math.log2(x);
+    }
+}
+Answer :- O(log log n)
+
+ Question 11: 
+function doubleSqrtSearch(n) {
+    while (n > 2) {
+        n = Math.sqrt(Math.sqrt(n));
+    }
+}
+Answer :-  O(log log n)
+
+
+ Question 12:
+
+function squareRootLoop(n) {
+    let i = Math.sqrt(n);
+    while (i >= 2) {
+        i = Math.sqrt(i);
+    }
+}
+Answer :- O( log log n)
+
+ Question 13:
+
+function sqrtDecrement(n) {
+    for (let i = n; i >= 2; i = Math.sqrt(i)) {
+        console.log(i);
+    }
+}
+Answer :- O(log log n)
+
+ Question 14:
+
+function doubleSquareRoot(n) {
+    while (n > 1) {
+        n = Math.sqrt(n);
+        n = Math.sqrt(n);
+    }
+}
+Answer :- O (log log n)
+
+
+ Question 15:
+
+function halveThenSquareRoot(n) {
+    while (n > 1) {
+        n = Math.floor(n / 2);
+        n = Math.sqrt(n);
+    }
+}
+Answer :- O(log n)
+
+ Question 16:
+
+function twoLayerLog(n) {
+    while (n > 1) {
+        n = Math.floor(Math.log2(n));
+    }
+}
+Answer :- O(log log n)
+
+ Question 17:
+
+function repeatedLogAndSquare(n) {
+    while (n > 2) {
+        n = Math.log2(Math.sqrt(n));
+    }
+}
+Answer :- O(log log n)
+
+
+ Question 18:
+
+function linearLoop(n) {
+    for (let i = 0; i < n; i++) {
+        console.log(i);
+    }
+}
+Answer:- O(n)
+
+
+ Question 19:
+
+function sumArray(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+}
+Answer :- O(n)
+
+
+ Question 20:
+
+function printFirstHalf(arr) {
+    for (let i = 0; i < arr.length / 2; i++) {
+        console.log(arr[i]);
+    }
+}
+Answer :- O(n)
+
+
+ Question 21:
+
+function sumToN(n) {
+    let sum = 0;
+    for (let i = 1; i <= n; i++) {
+        sum += i;
+    }
+}
+Answer :- O(n)
+
+
+ Question 22:
+
+function printOddNumbers(n) {
+    for (let i = 1; i <= n; i += 2) {
+        console.log(i);
+    }
+}
+Answer :- O(n/2)
+
+ Question 23:
+
+function sumEvenIndices(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i += 2) {
+        sum += arr[i];
+    }
+}
+Answer :- O(n/2)
+
+ Question 24:
+
+function linearSearch(arr, target) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === target) return i;
+    }
+    return -1;
+}
+Answer :- O(n)
+
+
+ Question 25:
+
+function incrementToN(n) {
+    for (let i = 1; i <= n; i++) {
+        console.log(i);
+    }
+}
+Answer :- O(n)
+
+
+
