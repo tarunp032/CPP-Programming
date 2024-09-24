@@ -1,0 +1,217 @@
+1)
+*
+* *
+* * *
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 1; i <= 3; i++) {
+        for (int j = 1; j <= i; j++) {
+            cout << "* ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+
+2)
+A
+B C
+D E F
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    char ch = 'A';
+    for (int i = 1; i <= 3; i++) {
+        for (int j = 1; j <= i; j++) {
+            cout << ch++ << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+
+3)
+A
+A A
+A A A
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 1; i <= 3; i++) {
+        for (int j = 1; j <= i; j++) {
+            cout << "A ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+
+4)
+A B C D
+A B C
+A B
+A
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 4; i >= 1; i--) {
+        char ch = 'A';
+        for (int j = 1; j <= i; j++) {
+            cout << ch++ << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+
+5)
+1 2 3 4
+1 2 3
+1 2
+1
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 4; i >= 1; i--) {
+        for (int j = 1; j <= i; j++) {
+            cout << j << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+
+6)
+0 0 0 1
+0 0 1 2
+0 1 2 3
+1 2 3 4
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 0; i <= 3; i++) {
+        for (int j = 0; j <= 3; j++) {
+            cout << abs(i - j) << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+
+7) 
+0 0 0 A
+0 0 A B
+0 A B C
+A B C D
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 0; i <= 3; i++) {
+        for (int j = 0; j <= 3; j++) {
+            if (j < 3 - i)
+                cout << "0 ";
+            else
+                cout << char('A' + j - (3 - i)) << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+
+8) 
+A
+1 2
+B C D
+1 2 3 4
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    char ch = 'A';
+    for (int i = 1; i <= 4; i++) {
+        if (i % 2 != 0) {
+            for (int j = 1; j <= i; j++) {
+                cout << ch++ << " ";
+            }
+        } else {
+            for (int j = 1; j <= i; j++) {
+                cout << j << " ";
+            }
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+
+9)
+1 1 1 1
+2 2 1 2
+3 1 2 3
+1 2 3 4
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 1; i <= 4; i++) {
+        for (int j = 1; j <= 4; j++) {
+            if (i == j)
+                cout << i << " ";
+            else
+                cout << j << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+
+10) 
+0 0 0 1
+0 0 A B
+0 1 2 3
+A B C D
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            if (i == 1 && j >= 2)
+                cout << char('A' + j - 2) << " ";
+            else if (i == 3)
+                cout << char('A' + j) << " ";
+            else if (i == 2)
+                cout << j << " ";
+            else
+                cout << (i == 0 ? (j == 3 ? 1 : 0) : 0) << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
