@@ -1,0 +1,109 @@
+1. A vending machine only accepts coins of 10, 5, and 1 rupees. Write a program that takes any amount X and returns the fewest number of coins needed to make the amount.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int amount;
+    cout << "Enter the amount in rupees: ";
+    cin >> amount;
+
+    int tenRupeeCoins = 0;
+    int fiveRupeeCoins = 0;
+    int oneRupeeCoins = 0;
+
+    if (amount >= 10) {
+        tenRupeeCoins = amount / 10;
+        amount %= 10; 
+    }
+
+    if (amount >= 5) {
+        fiveRupeeCoins = amount / 5;
+        amount %= 5;
+    }
+    
+    oneRupeeCoins = amount;
+
+    cout << "To make the amount, you need:\n";
+    cout << tenRupeeCoins << " coins of 10 rupees\n";
+    cout << fiveRupeeCoins << " coins of 5 rupees\n";
+    cout << oneRupeeCoins << " coins of 1 rupee\n";
+    
+    int totalCoins = tenRupeeCoins + fiveRupeeCoins + oneRupeeCoins;
+    cout << "Total coins needed: " << totalCoins << endl;
+
+    return 0;
+}
+
+
+ 2.A person wants to save a total of X rupees by depositing an amount that doubles every day, starting from 1 rupee. Write a program to find out how many days it will take to save at least X rupees.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long targetAmount;
+    cout << "Enter the target amount in rupees: ";
+    cin >> targetAmount;
+
+    long long currentAmount = 1;
+    int days = 0;
+
+    while (currentAmount < targetAmount) {
+        currentAmount *= 2;
+        days++;
+    }
+
+    cout << "It will take " << days << " days to save at least " << targetAmount << " rupees." << endl;
+
+    return 0;
+}
+
+
+4.A person runs N kilometers every day, but their speed decreases by 10% every day. Write a program that calculates how many days it will take for the person’s daily distance to be less than K kilometers.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    double N, K;
+    cout << "Enter the initial distance (N) in kilometers: ";
+    cin >> N;
+    cout << "Enter the minimum distance (K) in kilometers: ";
+    cin >> K;
+
+    int days = 0;
+
+    while (N >= K) {
+        N *= 0.9; 
+        days++;
+    }
+
+    cout << "It will take " << days << " days for the distance to be less than " << K << " kilometers." << endl;
+
+    return 0;
+}
+
+
+5. Write a program to calculate the factorial of a number N using loops, but the twist is that the program should skip calculating the factorial for all numbers divisible by 3.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    cout << "Enter a number to calculate its factorial: ";
+    cin >> N;
+
+    long long factorial = 1;
+
+    for (int i = 1; i <= N; i++) {
+        if (i % 3 != 0) {
+            factorial *= i;
+        }
+    }
+
+    cout << "The factorial of " << N << " (excluding multiples of 3) is: " << factorial << endl;
+
+    return 0;
+}
