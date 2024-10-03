@@ -1,0 +1,177 @@
+#include <iostream>
+#include <cmath>
+#include <cstring> // for strcmp
+#include <iomanip> // for precision with floats
+using namespace std;
+
+// 1. Overloaded add function
+int add(int a, int b) { return a + b; }
+float add(float a, float b) { return a + b; }
+string add(string a, string b) { return a + b; }
+
+// 2. Overloaded calculateArea function
+float calculateArea(float radius) { return 3.14159f * radius * radius; }
+float calculateArea(float length, float breadth) { return length * breadth; }
+float calculateArea(float base, float height, bool isTriangle) { return 0.5f * base * height; }
+
+// 3. Overloaded max function
+int max(int a, int b) { return (a > b) ? a : b; }
+float max(float a, float b) { return (a > b) ? a : b; }
+string max(string a, string b) { return (a > b) ? a : b; }
+
+// 4. Overloaded print function
+void print(int a) { cout << "Integer: " << a << endl; }
+void print(float a) { cout << "Float: " << a << endl; }
+void print(string a) { cout << "String: " << a << endl; }
+
+// 5. Overloaded multiply function
+int multiply(int a, int b) { return a * b; }
+float multiply(float a, float b) { return a * b; }
+float multiply(int a, float b) { return a * b; }
+
+// 6. Overloaded swapValues function
+void swapValues(int &a, int &b) { int temp = a; a = b; b = temp; }
+void swapValues(float &a, float &b) { float temp = a; a = b; b = temp; }
+void swapValues(char &a, char &b) { char temp = a; a = b; b = temp; }
+
+// 7. Overloaded compare function
+int compare(int a, int b) { return (a > b) ? a : b; }
+float compare(float a, float b) { return (a > b) ? a : b; }
+char compare(char a, char b) { return (a > b) ? a : b; }
+
+// 8. Overloaded subtract function
+int subtract(int a, int b) { return a - b; }
+float subtract(float a, float b) { return a - b; }
+long subtract(long a, long b) { return a - b; }
+
+// 9. Overloaded findAverage function
+float findAverage(int a, int b) { return (a + b) / 2.0f; }
+float findAverage(int a, int b, int c) { return (a + b + c) / 3.0f; }
+float findAverage(int a, int b, int c, int d) { return (a + b + c + d) / 4.0f; }
+
+// 10. Overloaded power function
+int power(int base, int exp) { return pow(base, exp); }
+float power(float base, int exp) { return pow(base, exp); }
+float power(int base, float exp) { return pow(base, exp); }
+
+// 11. Overloaded reverse function
+int reverse(int num) {
+    int rev = 0;
+    while (num > 0) {
+        rev = rev * 10 + num % 10;
+        num /= 10;
+    }
+    return rev;
+}
+float reverse(float num) {
+    string str = to_string(num);
+    reverse(str.begin(), str.end());
+    return stof(str);
+}
+string reverse(string str) {
+    std::reverse(str.begin(), str.end());
+    return str;
+}
+
+// 12. Overloaded absolute function
+int absolute(int a) { return (a < 0) ? -a : a; }
+float absolute(float a) { return (a < 0) ? -a : a; }
+double absolute(double a) { return (a < 0) ? -a : a; }
+
+// 13. Overloaded isEqual function
+bool isEqual(int a, int b) { return a == b; }
+bool isEqual(char a, char b) { return a == b; }
+bool isEqual(float a, float b) { return fabs(a - b) < 1e-6; }
+
+// 14. Overloaded discount function
+float discount(int price) { return price * 0.9; }
+float discount(float price) { return price * 0.85; }
+float discount(string category) {
+    if (category == "electronics") return 0.75;
+    return 0.8;
+}
+
+// 15. Overloaded toUpper function
+char toUpper(char c) { return toupper(c); }
+string toUpper(string str) {
+    for (char &c : str) c = toupper(c);
+    return str;
+}
+
+// 16. Overloaded minValue function
+int minValue(int a, int b) { return (a < b) ? a : b; }
+float minValue(float a, float b) { return (a < b) ? a : b; }
+double minValue(double a, double b) { return (a < b) ? a : b; }
+
+// 17. Overloaded printSquare function
+void printSquare(int a) { cout << "Square of int: " << a * a << endl; }
+void printSquare(float a) { cout << "Square of float: " << a * a << endl; }
+void printSquare(double a) { cout << "Square of double: " << a * a << endl; }
+
+// 18. Overloaded concat function
+string concat(string a, string b) { return a + b; }
+string concat(int a, int b) { return to_string(a) + to_string(b); }
+string concat(int a, string b) { return to_string(a) + b; }
+
+// 19. Overloaded calculate function
+int calculate(int arr[], int size) {
+    int sum = 0;
+    for (int i = 0; i < size; i++) sum += arr[i];
+    return sum;
+}
+float calculate(float arr[], int size) {
+    float sum = 0;
+    for (int i = 0; i < size; i++) sum += arr[i];
+    return sum;
+}
+double calculate(double arr[], int size) {
+    double sum = 0;
+    for (int i = 0; i < size; i++) sum += arr[i];
+    return sum;
+}
+
+int main() {
+    // Demonstrate overloaded functions
+    cout << "Add Integers: " << add(10, 20) << endl;
+    cout << "Add Floats: " << add(3.14f, 2.71f) << endl;
+    cout << "Add Strings: " << add("Hello, ", "World!") << endl;
+
+    cout << "Area of Circle: " << calculateArea(5.0f) << endl;
+    cout << "Area of Rectangle: " << calculateArea(5.0f, 10.0f) << endl;
+    cout << "Area of Triangle: " << calculateArea(5.0f, 8.0f, true) << endl;
+
+    cout << "Max of two integers: " << max(10, 20) << endl;
+    cout << "Max of two floats: " << max(3.14f, 2.71f) << endl;
+    cout << "Max of two strings: " << max("apple", "banana") << endl;
+
+    print(100);
+    print(3.14159f);
+    print("C++ Overloading");
+
+    cout << "Multiply integers: " << multiply(10, 20) << endl;
+    cout << "Multiply floats: " << multiply(2.5f, 3.5f) << endl;
+    cout << "Multiply int with float: " << multiply(5, 2.5f) << endl;
+
+    int a = 10, b = 20;
+    swapValues(a, b);
+    cout << "Swapped Integers: " << a << ", " << b << endl;
+
+    float x = 5.5f, y = 10.5f;
+    swapValues(x, y);
+    cout << "Swapped Floats: " << x << ", " << y << endl;
+
+    char c1 = 'A', c2 = 'B';
+    swapValues(c1, c2);
+    cout << "Swapped Chars: " << c1 << ", " << c2 << endl;
+
+    cout << "Compare Integers: " << compare(10, 20) << endl;
+    cout << "Compare Floats: " << compare(3.14f, 2.71f) << endl;
+    cout << "Compare Chars: " << compare('A', 'B') << endl;
+
+    cout << "Subtract Integers: " << subtract(100, 50) << endl;
+    cout << "Subtract Floats: " << subtract(10.5f, 5.5f) << endl;
+    cout << "Subtract Longs: " << subtract(100000L, 50000L) << endl;
+
+    cout << "Average of 2 integers: " << findAverage(10, 20) << endl;
+    cout << "Average of 3 integers: " << findAverage(10, 20, 30) << endl;
+   
