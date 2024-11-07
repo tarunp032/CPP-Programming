@@ -1,0 +1,101 @@
+1. add all the non diagonal elements of 2d vector
+
+int sumNonDiagonal(const std::vector<std::vector<int>>& matrix) {
+    int n = matrix.size();
+    int sum = 0;
+    
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (i != j && i + j != n - 1) { // Non-diagonal elements
+                sum += matrix[i][j];
+            }
+        }
+    }
+    return sum;
+}
+
+
+2. [1,2,3,4,5,6,7,8,9] convert this array into 2d vector 
+a) find total number of elements in the array = 9
+b) perfect sqaure and based on that convert it into 2d array 3*3
+
+std::vector<std::vector<int>> convertTo2D(const std::vector<int>& arr) {
+    int n = 3;
+    std::vector<std::vector<int>> matrix(n, std::vector<int>(n));
+    
+    int k = 0;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            matrix[i][j] = arr[k++];
+        }
+    }
+    return matrix;
+}
+
+
+3) all the even positons of 1d array should be swapped with odd position
+
+void swapEvenOddPositions(std::vector<int>& arr) {
+    for (int i = 0; i < arr.size() - 1; i += 2) {
+        std::swap(arr[i], arr[i + 1]);
+    }
+}
+
+4) add all the even values and odd positon values and find the absolute difference difference bw them 
+0 1 2 3 4 5 6 7 8
+1 2 3 4 5 6 7 8 9 = ( 2+4+6+8 even values)
+ (2+4+6+8 odd postion)   ans = 0
+
+int calculateDifference(const std::vector<int>& arr) {
+    int evenSum = 0, oddPosSum = 0;
+    
+    for (int i = 0; i < arr.size(); ++i) {
+        if (arr[i] % 2 == 0) {
+            evenSum += arr[i];
+        }
+        if (i % 2 != 0) { // Odd position
+            oddPosSum += arr[i];
+        }
+    }
+    return std::abs(evenSum - oddPosSum);
+}
+
+
+5) [10,12,24,64,128,1024,125] extract power of 2 and return a new array [64,128,1024]
+
+bool isPowerOfTwo(int n) {
+    return (n > 0) && ((n & (n - 1)) == 0);
+}
+
+std::vector<int> extractPowersOfTwo(const std::vector<int>& arr) {
+    std::vector<int> powersOfTwo;
+    
+    for (int num : arr) {
+        if (isPowerOfTwo(num)) {
+            powersOfTwo.push_back(num);
+        }
+    }
+    return powersOfTwo;
+}
+
+
+6)[6,12,18,24.36,40] even no of elements ka array lena hai and each corresponding values ka hcf nikalna hai aur usko ek naye array mai store karna hai
+
+
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+std::vector<int> hcfPairs(const std::vector<int>& arr) {
+    std::vector<int> hcfArray;
+    
+    for (int i = 0; i < arr.size() - 1; i += 2) {
+        hcfArray.push_back(gcd(arr[i], arr[i + 1]));
+    }
+    return hcfArray;
+}
